@@ -1,35 +1,28 @@
 package org.blz.sweetshop;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 public class SweetRepository {
 
-    private List sweetList = new ArrayList();
 
-    public List getSweetList() {
+    private Set sweetList = new HashSet();
+
+    public Set<Sweet> getSweetList() {
         return sweetList;
     }
 
-    public void add(Jilebi jilebi) {
-        sweetList.add(jilebi);
+    public void add(Sweet sweet) {
+        sweetList.add(sweet);
     }
 
-        public void add(Kalakand Kalakand) {
-            sweetList.add(Kalakand);
-        }
-
-    public void add(Laddu Laddu) {
-        sweetList.add(Laddu);
-    }
-
-    public void add(Mitai Mitai) {
-        sweetList.add(Mitai);
-    }
-
-    public void add(Poothareku Poothareku) {
-        sweetList.add(Poothareku);
+    public void delete(Jilebi jilebi) {
+        sweetList.remove(jilebi);
     }
 
 }
+
+

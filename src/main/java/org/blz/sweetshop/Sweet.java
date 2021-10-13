@@ -1,14 +1,16 @@
 package org.blz.sweetshop;
 
 
+import java.util.Objects;
+
 public class Sweet {
 
     enum Colour {
-        RED,WHITE,YELLOW,LIGHT_YELLOW,LIGHT_WHITE;
+        RED, WHITE, YELLOW, LIGHT_YELLOW, LIGHT_WHITE;
     }
 
     enum Category {
-        MILK,SUGAR,JAGGUARY,GHEE;
+        MILK, SUGAR, JAGGUARY, GHEE;
     }
 
     Colour colour;
@@ -26,5 +28,18 @@ public class Sweet {
                 ", price=" + price +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Sweet sweet = (Sweet) o;
+        return Objects.equals(id, sweet.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
