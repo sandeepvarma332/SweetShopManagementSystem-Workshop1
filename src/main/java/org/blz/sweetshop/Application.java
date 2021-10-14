@@ -37,8 +37,12 @@ public class Application {
         userInterface.print(sweetRepository.getSweetList());
 
         sweetRepository.delete(jilebi);
-        System.out.println("");
+        System.out.println("\n after deleting");
         userInterface.print(sweetRepository.getSweetList());
+        System.out.println("\n the DIET sweet is");
+        userInterface.printDietSweet(sweetRepository.getSweetList());
+        System.out.println("\n the NORMAL sweet is");
+        userInterface.printNormalSweet(sweetRepository.getSweetList());
 
 
     }

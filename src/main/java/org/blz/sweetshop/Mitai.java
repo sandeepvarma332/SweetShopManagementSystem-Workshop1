@@ -1,6 +1,6 @@
 package org.blz.sweetshop;
 
-public class Mitai extends Sweet {
+public class Mitai extends Sweet implements INormal{
 
 
     public Mitai() {

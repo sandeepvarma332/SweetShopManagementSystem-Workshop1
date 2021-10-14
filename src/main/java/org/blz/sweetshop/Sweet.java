@@ -3,14 +3,14 @@ package org.blz.sweetshop;
 
 import java.util.Objects;
 
-public class Sweet {
+public abstract class Sweet {
 
     enum Colour {
         RED, WHITE, YELLOW, LIGHT_YELLOW, LIGHT_WHITE;
     }
 
     enum Category {
-        MILK, SUGAR, JAGGUARY, GHEE;
+        MILK, SUGAR, JAGGUARY, GHEE,SUGAR_LESS;
     }
 
     Colour colour;
