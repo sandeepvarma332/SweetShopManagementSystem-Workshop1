@@ -1,9 +1,52 @@
 package org.blz.sweetshop;
 
+import java.util.Set;
+
 
 public class Application {
     public static void main(String[] args) {
         System.out.println("Welcome To Sweet Shop Management System");
+        int option = 0;
+        Application application = new Application();
+        while (option != 7) {
+            option = application.userInterface.showUserMenu();
+            application.handleUserSelection(option);
+            continue;
+        }
+    }
+
+    SweetRepository sweetRepository = new SweetRepository();
+    UserInterface userInterface = new UserInterface();
+
+    public void handleUserSelection(int option) {
+        Set sweetSet = sweetRepository.getSweetList();
+        switch (option) {
+            case 1:
+                addSweet();
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                userInterface.print(sweetSet);
+                break;
+            case 5:
+                System.out.println("\n printing Idiet sweet \n");
+                userInterface.printDietSweet(sweetSet);
+                break;
+            case 6:
+                System.out.println("\n printing Inormal sweet \n");
+                userInterface.printNormalSweet(sweetSet);
+                break;
+            case 7:
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void addSweet() {
         Jilebi jilebi = new Jilebi();
         jilebi.id = "j001";
         jilebi.price = 10;
@@ -31,19 +74,5 @@ public class Application {
         sweetRepository.add(poothareku);
         sweetRepository.add(poothareku);
         sweetRepository.add(mitai1);
-
-
-        UserInterface userInterface = new UserInterface();
-        userInterface.print(sweetRepository.getSweetList());
-
-        sweetRepository.delete(jilebi);
-        System.out.println("\n after deleting");
-        userInterface.print(sweetRepository.getSweetList());
-        System.out.println("\n the DIET sweet is");
-        userInterface.printDietSweet(sweetRepository.getSweetList());
-        System.out.println("\n the NORMAL sweet is");
-        userInterface.printNormalSweet(sweetRepository.getSweetList());
-
-
     }
 }
