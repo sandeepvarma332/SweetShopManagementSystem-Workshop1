@@ -5,6 +5,19 @@ import java.util.Set;
 
 public class UserInterface {
 
+    private static UserInterface instance;
+
+    private UserInterface() {
+
+    }
+    public static UserInterface getInstance() {
+        if (instance == null) {
+            instance = new UserInterface();
+        }
+        return instance;
+    }
+
+
     public int showUserMenu() {
         System.out.println("\n 1.to add the sweet");
         System.out.println("\n 2.to remove the sweet");
@@ -18,10 +31,6 @@ public class UserInterface {
         int option =sc.nextInt();
         return option;
     }
-
-
-
-
 
     public void print(Set<Sweet> set) {
 

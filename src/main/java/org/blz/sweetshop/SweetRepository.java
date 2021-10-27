@@ -11,15 +11,34 @@ public class SweetRepository {
 
     private Set sweetList = new HashSet();
 
-    public Set<Sweet> getSweetList() {
+    private static SweetRepository instance;
+
+    private SweetRepository() {
+
+    }
+
+    public static SweetRepository getInstance() {
+        if (instance == null) {
+            instance = new SweetRepository();
+
+        }
+        return instance;
+    }
+
+
+
+    public Set<Sweet> getSweetList()
+    {
         return sweetList;
     }
 
-    public void add(Sweet sweet) {
+    public void add(Sweet sweet)
+    {
         sweetList.add(sweet);
     }
 
-    public void delete(Jilebi jilebi) {
+    public void delete(Jilebi jilebi)
+    {
         sweetList.remove(jilebi);
     }
 

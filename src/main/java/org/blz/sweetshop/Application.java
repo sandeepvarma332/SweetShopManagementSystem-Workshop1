@@ -11,12 +11,12 @@ public class Application {
         while (option != 7) {
             option = application.userInterface.showUserMenu();
             application.handleUserSelection(option);
-            continue;
+            System.out.println("bye bye");
         }
     }
 
-    SweetRepository sweetRepository = new SweetRepository();
-    UserInterface userInterface = new UserInterface();
+    SweetRepository sweetRepository = SweetRepository.getInstance();
+    UserInterface userInterface =  UserInterface.getInstance();
 
     public void handleUserSelection(int option) {
         Set sweetSet = sweetRepository.getSweetList();
@@ -42,6 +42,7 @@ public class Application {
             case 7:
                 break;
             default:
+                System.out.println("enter right option");
                 break;
         }
     }
@@ -66,7 +67,7 @@ public class Application {
         mitai1.price = 55;
         mitai1.id = "M008";
 
-        SweetRepository sweetRepository = new SweetRepository();
+
         sweetRepository.add(jilebi);
         sweetRepository.add(kalakand);
         sweetRepository.add(laddu);
